@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What If Amul Didn't...? – Exploring the Power of Strategic Decisions</title>
+    <!-- Google Fonts - Poppins/Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Intro Animation Container -->
+    <div id="intro-animation" class="intro-animation-container">
+        <div id="pixel-cattle" class="pixel-cattle"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Amul_official_logo.svg/1200px-Amul_official_logo.svg.png" alt="Amul Logo" class="amul-logo-intro">
+        <div id="logo-text" class="logo-text">Strategic Management Decision by Gurmat Singh</div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Amul_official_logo.svg/1200px-Amul_official_logo.svg.png" alt="Amul Logo" class="amul-logo">
+            <h1>"What If Amul Didn't...?" – Exploring the Power of Strategic Decisions</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Split Panel Layout -->
+        <div class="panel-container">
+            <!-- Left Panel (User Interaction Area) -->
+            <div class="panel left-panel">
+                <div class="decision-container">
+                    <h2 id="decision-title">Decision 1</h2>
+                    <p id="decision-description">Description of the strategic decision...</p>
+                    
+                    <div class="options">
+                        <button id="correct-option" class="option-btn correct">✅ Correct decision (Amul's actual move)</button>
+                        <button id="incorrect-option" class="option-btn incorrect">❌ Incorrect decision (hypothetical alternative)</button>
+                    </div>
+                </div>
+                
+                <div class="navigation">
+                    <div class="progress-tracker">
+                        <span id="current-progress">1</span>/15 decisions explored
+                    </div>
+                    <button id="next-btn" class="nav-btn" disabled>Next Decision</button>
+                </div>
+            </div>
+            
+            <!-- Right Panel (Dynamic Response Area) -->
+            <div class="panel right-panel">
+                <div class="chart-container">
+                    <canvas id="impact-chart"></canvas>
+                </div>
+                
+                <div class="description-box">
+                    <div class="impact-header">
+                        <span class="impact-icon">💡</span>
+                        <h3>Impact of Your Decision</h3>
+                    </div>
+                    <div id="impact-content">
+                        <p id="impact-description">Select an option to see the impact...</p>
+                        <div id="competency-gained" class="competency-section">
+                            <h4>Competency Built:</h4>
+                            <p id="competency-description"></p>
+                        </div>
+                    </div>
+                    <div class="sources-section">
+                        <small>Sources: <span id="decision-sources"></span></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decision Cards Below the Graph -->
+        <div class="decision-cards-container">
+            <h2>Amul Strategic Decisions Timeline</h2>
+            <div id="decision-cards" class="decision-cards">
+                <!-- Decision cards will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Summary Modal (appears after all decisions) -->
+    <div id="summary-modal" class="modal">
+        <div class="modal-content">
+            <h2>Your Journey Summary</h2>
+            <div class="score-container">
+                <p>Your Score: <span id="final-score">0</span>/15</p>
+            </div>
+            <div class="learnings">
+                <h3>What You Learned</h3>
+                <p id="learning-summary"></p>
+            </div>
+            <button id="download-pdf" class="download-btn">Download Your Journey PDF</button>
+            <button id="restart-btn" class="restart-btn">Restart Journey</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Amul Strategic Decisions Interactive Experience</p>
+    </footer>
+
+    <!-- Load Chart.js first -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Then load your script -->
+    <script src="script.js"></script>
+</body>
+</html>
