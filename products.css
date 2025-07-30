@@ -1,0 +1,676 @@
+/* Products Page Styling */
+:root {
+    /* Dairy Business Theme Colors */
+    --dairy-primary: #1e5631; /* Rich green for dairy farms */
+    --dairy-secondary: #4d8c57; /* Medium green */
+    --dairy-accent: #f7b538; /* Butter/cheese yellow */
+    --milk-white: #ffffff;
+    --cream-light: #fff8e6;
+    --cream-medium: #f9f3e3;
+    --grass-light: #e8f5e9;
+    --grass-medium: #c5e8b7;
+    --chocolate-dark: #5d4037; /* For text and accents */
+    --milk-product: #f0f8ff;
+    --butter-product: #fff8dc;
+    --cheese-product: #fffacd;
+    --icecream-product: #f0ffff;
+    --beverage-product: #f5f5f5;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --hover-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    --milk-drop-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* University Banner */
+.university-banner {
+    background: linear-gradient(135deg, var(--dairy-primary), var(--dairy-secondary));
+    color: var(--milk-white);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.university-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.2;
+    z-index: 0;
+    animation: rotateBg 120s linear infinite;
+}
+
+.university-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.university-logo {
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L95 30 L95 35 L5 35 L5 30 Z' fill='%23ffffff'/%3E%3Cpath d='M20 35 L20 80 L30 80 L30 35 Z' fill='%23ffffff'/%3E%3Cpath d='M45 35 L45 80 L55 80 L55 35 Z' fill='%23ffffff'/%3E%3Cpath d='M70 35 L70 80 L80 80 L80 35 Z' fill='%23ffffff'/%3E%3Cpath d='M15 85 L85 85 L85 95 L15 95 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.university-banner h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.university-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* Product Filters */
+.product-filters {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.product-filters h2 {
+    color: var(--dairy-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.8rem;
+}
+
+.product-filters h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, var(--dairy-primary), var(--dairy-secondary), var(--dairy-accent));
+    border-radius: 3px;
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--cream-light);
+    border: 2px solid var(--dairy-secondary);
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--dairy-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn:hover {
+    background-color: var(--grass-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+    background-color: var(--dairy-secondary);
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.product-card {
+    background-color: var(--milk-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+}
+
+.product-card:hover {
+    transform: perspective(1000px) translateY(-10px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: var(--hover-shadow), 0 15px 30px rgba(0, 119, 182, 0.1);
+    border-color: rgba(0, 119, 182, 0.2);
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--dairy-primary), var(--dairy-secondary));
+    z-index: 1;
+}
+
+.product-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.product-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+    transition: height 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.product-card:hover .product-image::after {
+    height: 50%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+/* Product Category Background Images */
+.milk-product {
+    background-color: var(--milk-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,20 L70,20 L65,80 L35,80 Z' fill='%23f0f8ff' stroke='%234d8c57' stroke-width='2'/%3E%3Cpath d='M40,30 L60,30 L58,70 L42,70 Z' fill='white' stroke='%234d8c57' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.milk-product-2 {
+    background-color: var(--milk-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23f0f8ff' stroke='%234d8c57' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='25' fill='white' stroke='%234d8c57' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.butter-product {
+    background-color: var(--butter-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='20' y='35' width='60' height='30' rx='5' ry='5' fill='%23f7b538' stroke='%235d4037' stroke-width='2'/%3E%3Crect x='25' y='40' width='50' height='20' rx='3' ry='3' fill='%23fff8dc' stroke='%235d4037' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.butter-product-2 {
+    background-color: var(--butter-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='25' y='40' width='50' height='20' rx='3' ry='3' fill='%23f7b538' stroke='%235d4037' stroke-width='2'/%3E%3Cpath d='M30,40 L35,30 L65,30 L70,40 Z' fill='%23fff8dc' stroke='%235d4037' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.cheese-product {
+    background-color: var(--cheese-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,40 L80,40 L70,70 L30,70 Z' fill='%23f7b538' stroke='%235d4037' stroke-width='2'/%3E%3Ccircle cx='35' cy='55' r='3' fill='%235d4037'/%3E%3Ccircle cx='50' cy='60' r='3' fill='%235d4037'/%3E%3Ccircle cx='65' cy='50' r='3' fill='%235d4037'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.cheese-product-2 {
+    background-color: var(--cheese-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='30' y='30' width='40' height='40' fill='%23f7b538' stroke='%235d4037' stroke-width='2'/%3E%3Cline x1='30' y1='40' x2='70' y2='40' stroke='%235d4037' stroke-width='1'/%3E%3Cline x1='30' y1='50' x2='70' y2='50' stroke='%235d4037' stroke-width='1'/%3E%3Cline x1='30' y1='60' x2='70' y2='60' stroke='%235d4037' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.icecream-product {
+    background-color: var(--icecream-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M40,30 C40,20 60,20 60,30 L60,50 L40,50 Z' fill='%23f0ffff' stroke='%235d4037' stroke-width='2'/%3E%3Cpath d='M40,50 L50,80 L60,50 Z' fill='%23f7b538' stroke='%235d4037' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.beverage-product {
+    background-color: var(--beverage-product);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M35,20 L65,20 L60,30 L40,30 Z' fill='%234d8c57' stroke='%235d4037' stroke-width='2'/%3E%3Cpath d='M40,30 L60,30 L55,80 L45,80 Z' fill='%23f5f5f5' stroke='%235d4037' stroke-width='2'/%3E%3Cpath d='M45,40 L55,40 L54,70 L46,70 Z' fill='%234d8c57' stroke='%235d4037' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+.product-details {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details h3 {
+    color: var(--dairy-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.product-details h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--dairy-accent);
+    border-radius: 3px;
+}
+
+.product-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--cream-light);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    color: var(--chocolate-dark);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dairy-primary);
+}
+
+.product-description {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.product-description p {
+    color: var(--chocolate-dark);
+}
+
+.product-differentiation, .product-distinctiveness {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.product-differentiation {
+    background-color: var(--grass-light);
+    border-left: 4px solid var(--dairy-secondary);
+}
+
+.product-distinctiveness {
+    background-color: var(--cream-light);
+    border-left: 4px solid var(--dairy-accent);
+}
+
+.product-differentiation:hover, .product-distinctiveness:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-differentiation h4, .product-distinctiveness h4 {
+    color: var(--dairy-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.product-differentiation p, .product-distinctiveness p {
+    font-size: 0.95rem;
+    color: var(--chocolate-dark);
+}
+
+/* Market Analysis Section */
+.market-analysis {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: var(--milk-white);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.market-analysis:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.market-analysis h2 {
+    color: var(--dairy-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.market-analysis h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--dairy-primary), var(--dairy-secondary));
+    border-radius: 3px;
+}
+
+.chart-container {
+    height: 400px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Back to Main Button */
+.back-to-main {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--dairy-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn:hover {
+    background-color: var(--dairy-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--dairy-primary);
+    color: var(--milk-white);
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1.5rem;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-amul-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+}
+
+.university-reference {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.footer-links h3, .footer-contact h3 {
+    color: var(--dairy-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after, .footer-contact h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--dairy-accent);
+    border-radius: 2px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--milk-white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.footer-links a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--dairy-accent);
+    padding-left: 1.5rem;
+}
+
+.footer-links a:hover::before {
+    left: 0.3rem;
+}
+
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .product-meta {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .university-banner h2 {
+        font-size: 1.8rem;
+    }
+    
+    .university-banner p {
+        font-size: 1rem;
+    }
+    
+    .filter-controls {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .product-meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .meta-item:last-child {
+        grid-column: span 2;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links h3::after, .footer-contact h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-links a {
+        padding-left: 0;
+    }
+    
+    .footer-links a::before {
+        content: none;
+    }
+    
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .university-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .university-banner h2 {
+        font-size: 1.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-image {
+        height: 150px;
+    }
+    
+    .product-details h3 {
+        font-size: 1.2rem;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+}

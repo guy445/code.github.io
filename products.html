@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amul Products Catalog - Dairy Excellence</title>
+    <!-- Google Fonts - Poppins/Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="products.css">
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Amul_official_logo.svg/375px-Amul_official_logo.svg.png" alt="Amul Logo" class="amul-logo">
+            <h1>Amul Product Catalog - The Taste of India</h1>
+            <div class="university-badge">Presented at Chitkara University</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="university-banner">
+            <div class="university-logo"></div>
+            <h2>Chitkara University</h2>
+            <p>Presented by Gurmat Singh</p>
+        </div>
+
+        <div class="product-filters">
+            <h2>Amul Product Portfolio</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="milk">Milk Products</button>
+                <button class="filter-btn" data-filter="butter">Butter & Spreads</button>
+                <button class="filter-btn" data-filter="cheese">Cheese</button>
+                <button class="filter-btn" data-filter="icecream">Ice Cream</button>
+                <button class="filter-btn" data-filter="beverage">Beverages</button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <!-- Milk Products -->
+            <div class="product-card milk-product">
+                <div class="product-image milk-product"></div>
+                <div class="product-details">
+                    <h3>Amul Gold Milk</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">1996</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹66/liter</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹5,200 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Premium full-cream milk with 4.5% fat content, providing rich taste and nutritional benefits.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Higher fat content than competitors, sourced directly from farmer cooperatives ensuring freshness and quality.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Processed using advanced UHT technology for extended shelf life without preservatives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Butter Products -->
+            <div class="product-card butter-product">
+                <div class="product-image butter-product"></div>
+                <div class="product-details">
+                    <h3>Amul Butter</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">1955</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹54/100g</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹8,500 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Iconic table butter made from fresh cream with a distinctive taste that has defined generations.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Made from pasteurized cream with no added colors or preservatives, creating a natural buttery taste.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Recognized by the Amul Girl mascot, one of India's longest-running advertising campaigns since 1966.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cheese Products -->
+            <div class="product-card cheese-product">
+                <div class="product-image cheese-product"></div>
+                <div class="product-details">
+                    <h3>Amul Cheese</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">1964</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹125/200g</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹4,800 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Processed cheese with a mild flavor, perfect for sandwiches, toast, and cooking applications.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Made from natural cheese with no artificial additives, providing authentic dairy flavor.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Versatile product available in blocks, slices, spreads, and cubes to suit different consumer needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ice Cream Products -->
+            <div class="product-card icecream-product">
+                <div class="product-image icecream-product"></div>
+                <div class="product-details">
+                    <h3>Amul Ice Cream</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">1996</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹220/liter</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹3,900 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Real milk ice cream made with fresh cream and natural ingredients in various flavors.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Made with real milk fat instead of vegetable oils, creating a creamier texture and richer taste.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Offers unique Indian flavors like Kesar Pista and Malai Kulfi alongside international favorites.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverage Products -->
+            <div class="product-card beverage-product">
+                <div class="product-image beverage-product"></div>
+                <div class="product-details">
+                    <h3>Amul Kool</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">2002</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹25/200ml</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹1,800 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Flavored milk beverages available in various flavors including chocolate, strawberry, and kesar.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Made with real milk and natural flavors, providing nutrition along with refreshment.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Offers unique Indian flavors like Kesar and Thandai, catering to local taste preferences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Milk Products -->
+            <div class="product-card" data-category="milk">
+                <div class="product-image milk-product-2"></div>
+                <div class="product-details">
+                    <h3>Amul Dahi (Yogurt)</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">1994</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹40/400g</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹2,100 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Traditional Indian yogurt made from pasteurized milk with active cultures for gut health.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Contains probiotic cultures that aid digestion and boost immunity, with no added preservatives.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Perfect balance of thickness and tanginess that complements Indian cuisine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Butter Products -->
+            <div class="product-card" data-category="butter">
+                <div class="product-image butter-product-2"></div>
+                <div class="product-details">
+                    <h3>Amul Lite Bread Spread</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">2001</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹50/100g</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹1,200 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Low-fat butter spread with 40% less fat than regular butter, ideal for health-conscious consumers.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Provides the taste of butter with reduced fat content, making it heart-friendly.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Maintains spreadability even when refrigerated, unlike regular butter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Cheese Products -->
+            <div class="product-card" data-category="cheese">
+                <div class="product-image cheese-product-2"></div>
+                <div class="product-details">
+                    <h3>Amul Mozzarella Cheese</h3>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Launched:</span>
+                            <span class="meta-value">2006</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-value">₹380/1kg</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Market Cap:</span>
+                            <span class="meta-value">₹1,500 Cr</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>Stretchy, mild-flavored cheese perfect for pizzas, pastas, and other Italian dishes.</p>
+                    </div>
+                    <div class="product-differentiation">
+                        <h4>Core Differentiation</h4>
+                        <p>Made with standardized process ensuring consistent melting properties and stretch.</p>
+                    </div>
+                    <div class="product-distinctiveness">
+                        <h4>Distinctiveness</h4>
+                        <p>Available in both block and shredded formats for different cooking applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="market-analysis">
+            <h2>Revenue Comparison: Decision Impact Analysis</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">This chart compares the revenue difference between optimal and alternative strategic decisions</p>
+            <div class="chart-container">
+                <canvas id="revenueComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <div class="back-to-main">
+            <a href="index.html" class="back-btn">Back to Strategic Decisions</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Amul_official_logo.svg/375px-Amul_official_logo.svg.png" alt="Amul Logo" class="footer-amul-logo">
+                <div class="university-reference">
+                    <p>A project of Chitkara University</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Strategic Decisions</a></li>
+                    <li><a href="products.html">Product Catalog</a></li>
+                    <li><a href="https://amul.com" target="_blank">Official Amul Website</a></li>
+                    <li><a href="https://www.chitkara.edu.in" target="_blank">Chitkara University</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>Gujarat Cooperative Milk Marketing Federation Ltd.</p>
+                <p>Amul Dairy Road, Anand, Gujarat, India</p>
+                <p>Email: info@amul.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 Amul Strategic Decisions & Product Catalog - Educational Project</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+</body>
+</html>

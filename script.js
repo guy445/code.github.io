@@ -726,50 +726,71 @@ function createTimelineChart() {
         });
     }
     
+    // Create a gradient for the chart backgrounds
+    const createGradient = (ctx, color1, color2, alpha1 = 0.6, alpha2 = 0.1) => {
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, color1.replace(')', `, ${alpha1})`) + '');
+        gradient.addColorStop(1, color2.replace(')', `, ${alpha2})`) + '');
+        return gradient;
+    };
+    
+    // Dairy-themed colors
+    const correctPathColor = '#4d8c57'; // Green
+    const incorrectPathColor = '#b35a20'; // Brown
+    const highlightColor = '#f9c74f'; // Yellow
+    
+    // Create gradients
+    const correctGradient = createGradient(ctx, 'rgba(77, 140, 87', 'rgba(77, 140, 87');
+    const incorrectGradient = createGradient(ctx, 'rgba(179, 90, 32', 'rgba(179, 90, 32');
+    
     try {
         impactChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [
                     {
-                        label: 'Correct Decision Path',
+                        label: 'Optimal Growth Path',
                         data: actualData,
-                        borderColor: '#4caf50',
-                        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                        borderColor: correctPathColor,
+                        backgroundColor: correctGradient,
                         borderWidth: 3,
-                        tension: 0.3,
+                        tension: 0.4,
                         fill: true,
                         pointRadius: 6,
-                        pointHoverRadius: 8,
+                        pointHoverRadius: 10,
+                        pointBackgroundColor: correctPathColor,
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
+                        pointStyle: 'circle',
                         hidden: false // Show by default
                     },
                     {
-                        label: 'Incorrect Decision Path',
+                        label: 'Alternative Path',
                         data: alternateData,
-                        borderColor: '#d62828',
-                        backgroundColor: 'rgba(214, 40, 40, 0.2)',
+                        borderColor: incorrectPathColor,
+                        backgroundColor: incorrectGradient,
                         borderWidth: 2,
-                        borderDash: [5, 5],
-                        tension: 0.3,
+                        borderDash: [6, 6],
+                        tension: 0.4,
                         fill: true,
-                        pointRadius: 0,
-                        pointHoverRadius: 6,
+                        pointRadius: 5,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: incorrectPathColor,
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
+                        pointStyle: 'circle',
                         hidden: true // Initially hidden
                     },
                     {
-                        label: 'Selected Decision',
+                        label: 'Current Decision',
                         data: [],
-                        borderColor: '#0077b6',
-                        backgroundColor: '#0077b6',
-                        pointRadius: 10,
-                        pointHoverRadius: 12,
-                        pointStyle: 'star',
-                        pointBorderColor: '#FFC107',
-                        pointBorderWidth: 2,
+                        borderColor: highlightColor,
+                        backgroundColor: highlightColor,
+                        pointRadius: 12,
+                        pointHoverRadius: 15,
+                        pointStyle: 'rectRot',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 3,
                         showLine: false
                     }
                 ]
@@ -783,64 +804,79 @@ function createTimelineChart() {
                         position: 'bottom',
                         title: {
                             display: true,
-                            text: 'Year (1946 to 2025)',
+                            text: 'Timeline (1946 to 2025)',
                             font: {
                                 size: 16,
-                                weight: 'bold'
+                                weight: 'bold',
+                                family: "'Poppins', sans-serif"
                             },
-                            color: '#333'
+                            color: '#2a4d3b'
                         },
                         ticks: {
                             callback: function(value) {
                                 return value.toString();
                             },
                             font: {
-                                size: 14
+                                size: 14,
+                                family: "'Poppins', sans-serif"
                             },
-                            color: '#555'
+                            color: '#555',
+                            padding: 10
                         },
                         min: 1946,
                         max: 2025,
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.1)',
-                            borderDash: [5, 5]
+                            color: 'rgba(0, 0, 0, 0.07)',
+                            borderDash: [5, 5],
+                            drawBorder: false
                         }
                     },
                     y: {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Amul Revenue (₹ crore)',
+                            text: 'Dairy Revenue (₹ crore)',
                             font: {
                                 size: 16,
-                                weight: 'bold'
+                                weight: 'bold',
+                                family: "'Poppins', sans-serif"
                             },
-                            color: '#333'
+                            color: '#2a4d3b'
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.1)',
-                            borderDash: [5, 5]
+                            color: 'rgba(0, 0, 0, 0.07)',
+                            borderDash: [5, 5],
+                            drawBorder: false
                         },
                         ticks: {
                             font: {
-                                size: 14
+                                size: 14,
+                                family: "'Poppins', sans-serif"
                             },
-                            color: '#555'
+                            color: '#555',
+                            padding: 10,
+                            callback: function(value) {
+                                return '₹' + value.toLocaleString();
+                            }
                         }
                     }
                 },
                 plugins: {
                     tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        backgroundColor: 'rgba(42, 77, 59, 0.9)',
                         titleFont: {
                             size: 16,
-                            weight: 'bold'
+                            weight: 'bold',
+                            family: "'Poppins', sans-serif"
                         },
                         bodyFont: {
-                            size: 14
+                            size: 14,
+                            family: "'Poppins', sans-serif"
                         },
-                        padding: 12,
-                        cornerRadius: 8,
+                        padding: 15,
+                        cornerRadius: 10,
+                        boxPadding: 5,
+                        usePointStyle: true,
                         callbacks: {
                             title: function(tooltipItems) {
                                 return 'Year: ' + tooltipItems[0].parsed.x;
@@ -868,27 +904,32 @@ function createTimelineChart() {
                     },
                     legend: {
                         position: 'top',
+                        align: 'center',
                         labels: {
                             font: {
                                 size: 14,
-                                weight: 'bold'
+                                weight: 'bold',
+                                family: "'Poppins', sans-serif"
                             },
                             usePointStyle: true,
-                            padding: 20,
-                            color: '#333'
+                            padding: 25,
+                            color: '#2a4d3b',
+                            boxWidth: 30,
+                            boxHeight: 30
                         }
                     },
                     title: {
                         display: false, // Will be enabled when a decision is selected
                         text: 'Impact on Revenue',
                         font: {
-                            size: 16,
-                            weight: 'bold'
+                            size: 18,
+                            weight: 'bold',
+                            family: "'Poppins', sans-serif"
                         },
-                        color: '#d62828',
+                        color: '#2a4d3b',
                         padding: {
-                            top: 10,
-                            bottom: 20
+                            top: 15,
+                            bottom: 25
                         }
                     }
                 },
@@ -920,13 +961,29 @@ function updateTimelineHighlight(year) {
         return;
     }
     
-    // Update the highlight point
+    // Dairy-themed highlight color
+    const highlightColor = '#f9c74f'; // Yellow
+    
+    // Update the highlight point with enhanced styling
     impactChart.data.datasets[2].data = [{
         x: year,
         y: getValueForYear(year, 'correct')
     }];
     
+    // Apply dairy-themed styling to the highlight point
+    impactChart.data.datasets[2].borderColor = highlightColor;
+    impactChart.data.datasets[2].backgroundColor = highlightColor;
+    impactChart.data.datasets[2].pointBorderWidth = 3;
+    impactChart.data.datasets[2].pointRadius = 12;
+    impactChart.data.datasets[2].pointHoverRadius = 15;
+    
     try {
+        // Add a subtle animation effect
+        impactChart.options.animation = {
+            duration: 800,
+            easing: 'easeOutQuart'
+        };
+        
         impactChart.update();
     } catch (error) {
         console.error('Error updating chart highlight:', error);
@@ -958,6 +1015,11 @@ function updateTimelineData(option) {
     const correctValue = currentDecision.correctImpact.data;
     const incorrectValue = currentDecision.incorrectImpact.data;
     
+    // Dairy-themed colors
+    const correctPathColor = '#4d8c57'; // Green
+    const incorrectPathColor = '#b35a20'; // Brown
+    const highlightColor = '#f9c74f'; // Yellow
+    
     // Clear previous data points to focus only on current year
     impactChart.data.datasets[0].data = [];
     impactChart.data.datasets[1].data = [];
@@ -980,20 +1042,42 @@ function updateTimelineData(option) {
     }];
     
     // Show both datasets for comparison
-    impactChart.data.datasets[0].hidden = false; // Correct path
-    impactChart.data.datasets[1].hidden = false; // Incorrect path
+    impactChart.data.datasets[0].hidden = false; // Optimal path
+    impactChart.data.datasets[1].hidden = false; // Alternative path
     
-    // Make the selected path more prominent
+    // Make the selected path more prominent with dairy-themed styling
     if (option === 'correct') {
+        // Optimal path selected
         impactChart.data.datasets[0].borderWidth = 5;
-        impactChart.data.datasets[0].pointRadius = 8;
+        impactChart.data.datasets[0].pointRadius = 10;
+        impactChart.data.datasets[0].borderColor = correctPathColor;
+        impactChart.data.datasets[0].pointBackgroundColor = correctPathColor;
+        
         impactChart.data.datasets[1].borderWidth = 2;
-        impactChart.data.datasets[1].pointRadius = 4;
+        impactChart.data.datasets[1].pointRadius = 5;
+        impactChart.data.datasets[1].borderColor = incorrectPathColor;
+        impactChart.data.datasets[1].pointBackgroundColor = incorrectPathColor;
+        impactChart.data.datasets[1].borderDash = [6, 6];
+        
+        // Update highlight point
+        impactChart.data.datasets[2].borderColor = correctPathColor;
+        impactChart.data.datasets[2].backgroundColor = correctPathColor;
     } else {
+        // Alternative path selected
         impactChart.data.datasets[0].borderWidth = 2;
-        impactChart.data.datasets[0].pointRadius = 4;
+        impactChart.data.datasets[0].pointRadius = 5;
+        impactChart.data.datasets[0].borderColor = correctPathColor;
+        impactChart.data.datasets[0].pointBackgroundColor = correctPathColor;
+        
         impactChart.data.datasets[1].borderWidth = 5;
-        impactChart.data.datasets[1].pointRadius = 8;
+        impactChart.data.datasets[1].pointRadius = 10;
+        impactChart.data.datasets[1].borderColor = incorrectPathColor;
+        impactChart.data.datasets[1].pointBackgroundColor = incorrectPathColor;
+        impactChart.data.datasets[1].borderDash = []; // Remove dash for selected path
+        
+        // Update highlight point
+        impactChart.data.datasets[2].borderColor = incorrectPathColor;
+        impactChart.data.datasets[2].backgroundColor = incorrectPathColor;
     }
     
     // Zoom in on the current year by adjusting the chart scales
@@ -1008,22 +1092,27 @@ function updateTimelineData(option) {
     const difference = Math.abs(correctValue - incorrectValue);
     const differencePercentage = Math.round((difference / Math.min(correctValue, incorrectValue)) * 100);
     
-    // Update chart title to show the impact
+    // Create a more descriptive and visually appealing title
+    const impactText = option === 'correct' ? 'Positive Impact' : 'Potential Loss';
+    const impactIcon = option === 'correct' ? '📈' : '📉';
+    
+    // Update chart title to show the impact with dairy-themed styling
     impactChart.options.plugins.title = {
         display: true,
-        text: `Impact on Revenue: ${differencePercentage}% difference (₹${difference.toLocaleString()} Cr)`,
+        text: `${impactIcon} ${impactText}: ${differencePercentage}% difference (₹${difference.toLocaleString()} Cr)`,
         font: {
-            size: 16,
-            weight: 'bold'
+            size: 18,
+            weight: 'bold',
+            family: "'Poppins', sans-serif"
         },
-        color: '#d62828',
+        color: option === 'correct' ? correctPathColor : incorrectPathColor,
         padding: {
-            top: 10,
-            bottom: 20
+            top: 15,
+            bottom: 25
         }
     };
     
-    // Update decision cards to reflect the current selection
+    // Update decision cards to reflect the current selection with dairy-themed styling
     const currentCard = document.querySelector(`.decision-card[data-index="${currentDecisionIndex}"]`);
     if (currentCard) {
         const correctOption = currentCard.querySelector('.decision-card-option.correct');
@@ -1034,12 +1123,12 @@ function updateTimelineData(option) {
             correctOption.classList.add('selected');
             incorrectOption.classList.remove('selected');
             outcomeElement.className = 'decision-card-outcome correct';
-            outcomeElement.innerHTML = `<strong>✅ Outcome:</strong> ${currentDecision.correctImpact.description}`;
+            outcomeElement.innerHTML = `<strong>✅ Optimal Outcome:</strong> ${currentDecision.correctImpact.description}`;
         } else {
             incorrectOption.classList.add('selected');
             correctOption.classList.remove('selected');
             outcomeElement.className = 'decision-card-outcome incorrect';
-            outcomeElement.innerHTML = `<strong>❌ Outcome:</strong> ${currentDecision.incorrectImpact.description}`;
+            outcomeElement.innerHTML = `<strong>❌ Alternative Outcome:</strong> ${currentDecision.incorrectImpact.description}`;
         }
         
         outcomeElement.style.display = 'block';
@@ -1062,30 +1151,83 @@ function animateGrowthPath(option) {
     
     const currentDecision = strategicDecisions[currentDecisionIndex];
     
+    // Dairy-themed colors
+    const correctPathColor = '#4d8c57'; // Green
+    const incorrectPathColor = '#b35a20'; // Brown
+    const highlightColor = '#f9c74f'; // Yellow
+    
     // First update with just the selected path
     if (option === 'correct') {
-        impactChart.data.datasets[0].hidden = false; // Show actual growth
-        impactChart.data.datasets[1].hidden = true;  // Hide alternate scenario
+        impactChart.data.datasets[0].hidden = false; // Show optimal growth
+        impactChart.data.datasets[1].hidden = true;  // Hide alternative scenario
+        
+        // Enhance the selected path
+        impactChart.data.datasets[0].borderWidth = 5;
+        impactChart.data.datasets[0].pointRadius = 8;
+        impactChart.data.datasets[0].borderColor = correctPathColor;
+        impactChart.data.datasets[0].pointBackgroundColor = correctPathColor;
+        
+        // Update highlight point
+        impactChart.data.datasets[2].borderColor = correctPathColor;
+        impactChart.data.datasets[2].backgroundColor = correctPathColor;
     } else {
-        impactChart.data.datasets[0].hidden = true;  // Hide actual growth
-        impactChart.data.datasets[1].hidden = false; // Show alternate scenario
+        impactChart.data.datasets[0].hidden = true;  // Hide optimal growth
+        impactChart.data.datasets[1].hidden = false; // Show alternative scenario
+        
+        // Enhance the selected path
+        impactChart.data.datasets[1].borderWidth = 5;
+        impactChart.data.datasets[1].pointRadius = 8;
+        impactChart.data.datasets[1].borderColor = incorrectPathColor;
+        impactChart.data.datasets[1].pointBackgroundColor = incorrectPathColor;
+        impactChart.data.datasets[1].borderDash = []; // Remove dash for selected path
+        
+        // Update highlight point
+        impactChart.data.datasets[2].borderColor = incorrectPathColor;
+        impactChart.data.datasets[2].backgroundColor = incorrectPathColor;
     }
     
     impactChart.update();
     
-    // After a short delay, show both paths for comparison
+    // After a short delay, show both paths for comparison with enhanced animation
     setTimeout(() => {
-        impactChart.data.datasets[0].hidden = false; // Show actual growth
-        impactChart.data.datasets[1].hidden = false; // Show alternate scenario
+        // Show both paths with a smooth transition
+        impactChart.data.datasets[0].hidden = false; // Show optimal growth
+        impactChart.data.datasets[1].hidden = false; // Show alternative scenario
         
-        // Highlight the selected path
+        // Create a more dramatic visual difference between paths
         if (option === 'correct') {
-            impactChart.data.datasets[0].borderWidth = 4;
+            // Optimal path selected - make it stand out
+            impactChart.data.datasets[0].borderWidth = 5;
+            impactChart.data.datasets[0].pointRadius = 10;
+            impactChart.data.datasets[0].borderColor = correctPathColor;
+            impactChart.data.datasets[0].pointBackgroundColor = correctPathColor;
+            
+            // De-emphasize alternative path
             impactChart.data.datasets[1].borderWidth = 2;
+            impactChart.data.datasets[1].pointRadius = 5;
+            impactChart.data.datasets[1].borderColor = incorrectPathColor;
+            impactChart.data.datasets[1].pointBackgroundColor = incorrectPathColor;
+            impactChart.data.datasets[1].borderDash = [6, 6]; // Add dash for non-selected path
         } else {
+            // Alternative path selected - make it stand out
             impactChart.data.datasets[0].borderWidth = 2;
-            impactChart.data.datasets[1].borderWidth = 4;
+            impactChart.data.datasets[0].pointRadius = 5;
+            impactChart.data.datasets[0].borderColor = correctPathColor;
+            impactChart.data.datasets[0].pointBackgroundColor = correctPathColor;
+            
+            // Emphasize alternative path
+            impactChart.data.datasets[1].borderWidth = 5;
+            impactChart.data.datasets[1].pointRadius = 10;
+            impactChart.data.datasets[1].borderColor = incorrectPathColor;
+            impactChart.data.datasets[1].pointBackgroundColor = incorrectPathColor;
+            impactChart.data.datasets[1].borderDash = []; // Remove dash for selected path
         }
+        
+        // Add a subtle animation effect
+        impactChart.options.animation = {
+            duration: 1200,
+            easing: 'easeOutQuart'
+        };
         
         impactChart.update();
     }, 1000);
