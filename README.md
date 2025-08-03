@@ -70,7 +70,7 @@
     Cancel anytime.<br>
 Ready to watch? <br>
    </div>
-      <div class="top-left">khuse jaman kanda tapan.</div>
+      <div class="</div>
    
   </p>
   
