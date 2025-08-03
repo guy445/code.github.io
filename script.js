@@ -211,33 +211,33 @@ const strategicDecisions = [
         correctOption: "Yes, push export, marketing & production",
         incorrectOption: "No, freeze investments",
         correctImpact: {
-            description: "Setting ambitious targets motivated the entire organization and supply chain. Amul achieved between ₹59,000-₹72,000 Cr turnover, establishing itself as one of India's largest food companies.",
-            data: 59000 // ₹59,000-₹72,000 Cr turnover range
+            description: "Setting ambitious targets motivated the entire organization and supply chain. Amul brand achieved ₹72,000 Cr group turnover, establishing itself as one of India's largest food companies.",
+            data: 72000 // ₹72,000 Cr Amul brand turnover
         },
         incorrectImpact: {
             description: "Without ambitious targets, growth would likely plateau around ₹45,000-₹50,000 Cr as the organization settled into comfortable operational patterns.",
             data: 45000 // ₹45,000-₹50,000 Cr
         },
         competency: "Core: Operational Excellence",
-        sources: ["Amul"]
+        sources: ["Amul", "The Economic Times"]
     },
     {
         id: 13,
         year: 2023,
         title: "Brand & Product Base Strengthening",
-        description: "Should GCMMF continue expanding its product range and brand investments?",
+        description: "Should Amul continue expanding its product range and brand investments?",
         correctOption: "Yes, strengthen brand + product base",
         incorrectOption: "No, focus only on core milk",
         correctImpact: {
-            description: "Continued expansion helped GCMMF achieve ₹59,545 Cr turnover, reaching more consumers with a wider product range while maintaining quality and affordability.",
-            data: 59545 // ₹59,545 Cr (GCMMF), ₹90,000 Cr (Brand valuation)
+            description: "Continued expansion helped the Amul brand reach ₹80,000 Cr ($10 billion) group turnover while maintaining quality and affordability, even as GCMMF (which markets Amul) achieved ₹59,545 Cr turnover.",
+            data: 80000 // ₹80,000 Cr ($10 billion) Amul brand group turnover
         },
         incorrectImpact: {
             description: "Consolidation would limit growth potential and allow competitors to capture emerging market segments and regions.",
-            data: 50000 // ₹70,000 Cr brand value max
+            data: 50000 // ₹50,000 Cr brand value max
         },
         competency: "Core: Growth momentum",
-        sources: ["The Times of India", "bwmarketingworld.com"]
+        sources: ["The Times of India", "The Economic Times"]
     },
     {
         id: 14,
@@ -247,15 +247,15 @@ const strategicDecisions = [
         correctOption: "Yes, expand into UAE/Spain & global retail",
         incorrectOption: "No, remain domestic",
         correctImpact: {
-            description: "Global expansion opened new revenue streams and established Amul as an international brand. Entry into new markets represents a significant milestone in Amul's growth journey.",
-            data: 65911 // ₹65,911 Cr turnover, strong brand presence abroad
+            description: "Global expansion opened new revenue streams and established Amul as an international brand. The Amul brand reached ₹90,000 Cr ($10.58 billion) group turnover, while GCMMF (which markets Amul) achieved a turnover of ₹65,911 Cr ($7.75 billion).",
+            data: 90000 // ₹90,000 Cr ($10.58 billion) Amul brand group turnover
         },
         incorrectImpact: {
             description: "Without global expansion, Amul would eventually face growth limitations in the domestic market and miss opportunities to build global brand recognition.",
-            data: 55000 // ₹55,000 Cr turnover
+            data: 60000 // ₹60,000 Cr brand turnover
         },
         competency: "Distinctive: Brand equity",
-        sources: ["m.economictimes.com", "bwmarketingworld.com"]
+        sources: ["Times of India", "The Economic Times"]
     },
     {
         id: 15,
@@ -265,12 +265,12 @@ const strategicDecisions = [
         correctOption: "Yes, enter competitive EU dairy market",
         incorrectOption: "No, avoid EU due to regulations",
         correctImpact: {
-            description: "EU market entry will open premium markets and establish Amul as a global dairy player. This strategic move is expected to significantly boost turnover and brand value.",
-            data: 70000 // Expected ₹70,000+ Cr turnover in FY26
+            description: "EU market entry will open premium markets and establish Amul as a global dairy player. This strategic move is expected to significantly boost the Amul brand turnover to ₹100,000 Cr ($11.8 billion) by FY26, while GCMMF (which markets Amul) is projected to reach ₹75,000 Cr.",
+            data: 100000 // Expected ₹100,000 Cr Amul brand turnover by FY26
         },
         incorrectImpact: {
             description: "Without EU market entry, Amul would miss opportunities for premium positioning and global scale, limiting its long-term growth potential.",
-            data: 63000 // ₹63,000 Cr
+            data: 70000 // ₹70,000 Cr brand turnover
         },
         competency: "Distinctive: Global reach",
         sources: ["Amul", "The Times of India"]
@@ -280,7 +280,7 @@ const strategicDecisions = [
 // Timeline years for x-axis
 const timelineYears = strategicDecisions.map(decision => decision.year);
 
-// Actual historical turnover data points (for reference)
+// Actual historical turnover data points for Amul brand (for reference)
 const actualTurnoverData = [
     { year: 1946, value: 0 },
     { year: 1963, value: 40 },
@@ -291,7 +291,11 @@ const actualTurnoverData = [
     { year: 1990, value: 1439 },
     { year: 2000, value: 6000 },
     { year: 2010, value: 13500 },
-    { year: 2015, value: 27000 }
+    { year: 2015, value: 27000 },
+    { year: 2020, value: 38542 },
+    { year: 2022, value: 72000 },
+    { year: 2023, value: 80000 },
+    { year: 2024, value: 90000 }
 ];
 
 // State variables
@@ -486,12 +490,12 @@ function handleCardOptionClick(card, option, decision, outcomeElement) {
         correctOption.classList.add('selected');
         incorrectOption.classList.remove('selected');
         outcomeElement.className = 'decision-card-outcome correct';
-        outcomeElement.innerHTML = `<strong>✅ Outcome:</strong> ${decision.correctImpact.description}`;
+        outcomeElement.innerHTML = `<strong>✅ Outcome:</strong> ${decision.correctImpact.description}<br><strong>Amul Brand Turnover:</strong> ₹${decision.correctImpact.data.toLocaleString()} crore`;
     } else {
         incorrectOption.classList.add('selected');
         correctOption.classList.remove('selected');
         outcomeElement.className = 'decision-card-outcome incorrect';
-        outcomeElement.innerHTML = `<strong>❌ Outcome:</strong> ${decision.incorrectImpact.description}`;
+        outcomeElement.innerHTML = `<strong>❌ Outcome:</strong> ${decision.incorrectImpact.description}<br><strong>Estimated Amul Brand Turnover:</strong> ₹${decision.incorrectImpact.data.toLocaleString()} crore`;
     }
     
     // Show the outcome
@@ -507,6 +511,7 @@ function handleCardOptionClick(card, option, decision, outcomeElement) {
 function loadDecision(index) {
     const decision = strategicDecisions[index];
     decisionTitle.textContent = `${decision.year} – ${decision.title}`;
+    // Update description to clarify it's about Amul brand revenue
     decisionDescription.textContent = decision.description;
     correctOptionBtn.textContent = decision.correctOption;
     incorrectOptionBtn.textContent = decision.incorrectOption;
@@ -595,10 +600,10 @@ function selectOption(option) {
     // Create revenue comparison panel
     const revenueComparisonHtml = `
         <div class="revenue-comparison">
-            <h4>Revenue Comparison:</h4>
+            <h4>Amul Brand Revenue Comparison:</h4>
             <div class="revenue-data">
                 <div class="revenue-item correct">
-                    <span class="revenue-label">Correct Revenue:</span>
+                    <span class="revenue-label">Correct Brand Revenue:</span>
                     <span class="revenue-value">₹${correctRevenue.toLocaleString()} Cr</span>
                 </div>
                 <div class="revenue-item incorrect">
@@ -606,7 +611,7 @@ function selectOption(option) {
                     <span class="revenue-value">₹${incorrectRevenue.toLocaleString()} Cr</span>
                 </div>
                 <div class="revenue-item difference">
-                    <span class="revenue-label">Missed Potential:</span>
+                    <span class="revenue-label">Missed Brand Potential:</span>
                     <span class="revenue-value">₹${revenueDifference.toLocaleString()} Cr</span>
                 </div>
             </div>
@@ -640,7 +645,7 @@ function selectOption(option) {
             <strong>Year:</strong> ${decision.year} – ${decision.title}<br><br>
             <strong>✅ Historical Outcome:</strong><br>
             ${decision.correctImpact.description}<br><br>
-            <strong>Turnover Impact:</strong> ₹${decision.correctImpact.data.toLocaleString()} crore
+            <strong>Amul Brand Turnover:</strong> ₹${decision.correctImpact.data.toLocaleString()} crore
             ${competencyTagHtml}
             ${revenueComparisonHtml}
         `;
@@ -652,7 +657,7 @@ function selectOption(option) {
             <strong>Year:</strong> ${decision.year} – ${decision.title}<br><br>
             <strong>❌ Alternate Scenario:</strong><br>
             ${decision.incorrectImpact.description}<br><br>
-            <strong>Estimated Turnover:</strong> ₹${decision.incorrectImpact.data.toLocaleString()} crore
+            <strong>Estimated Amul Brand Turnover:</strong> ₹${decision.incorrectImpact.data.toLocaleString()} crore
             ${competencyTagHtml.replace('competency-tag', 'competency-tag missed')}
             ${revenueComparisonHtml}
         `;
@@ -835,7 +840,7 @@ function createTimelineChart() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Dairy Revenue (₹ crore)',
+                            text: 'Amul Brand Revenue (₹ crore)',
                             font: {
                                 size: 16,
                                 weight: 'bold',
@@ -887,7 +892,7 @@ function createTimelineChart() {
                                     label += ': ';
                                 }
                                 if (context.parsed.y !== null) {
-                                    label += '₹' + context.parsed.y.toLocaleString() + ' crore';
+                                    label += '₹' + context.parsed.y.toLocaleString() + ' crore (Amul Brand)';
                                 }
                                 return label;
                             },
@@ -920,7 +925,7 @@ function createTimelineChart() {
                     },
                     title: {
                         display: false, // Will be enabled when a decision is selected
-                        text: 'Impact on Revenue',
+                        text: 'Impact on Amul Brand Revenue',
                         font: {
                             size: 18,
                             weight: 'bold',

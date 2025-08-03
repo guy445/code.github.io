@@ -7,6 +7,9 @@
     <!-- Google Fonts - Poppins/Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Swiper.js for image slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="slider.css">
     <!-- Chart.js for data visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -27,6 +30,26 @@
             <div class="university-badge">Presented at Chitkara University</div>
         </div>
     </header>
+    
+    <!-- Hero Section with Slider and GIF -->
+    <div class="hero-section">
+        <!-- Hero Image Slider (Left) -->
+        <div class="hero-slider-container amul-slider-container">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slides will be added dynamically via JavaScript -->
+                </div>
+                <div class="swiper-pagination hero-swiper-pagination"></div>
+                <div class="swiper-button-next hero-swiper-button-next"></div>
+                <div class="swiper-button-prev hero-swiper-button-prev"></div>
+            </div>
+        </div>
+        
+        <!-- Cow GIF (Right) -->
+        <div class="hero-gif-container">
+            <img src="https://i.makeagif.com/media/11-03-2022/57yG8Z.gif" alt="Cow in green field" class="hero-gif">
+        </div>
+    </div>
 
     <main class="container">
         <!-- Split Panel Layout -->
@@ -111,8 +134,12 @@
     <!-- Load Chart.js first -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Then load your script -->
+    <!-- Load Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Then load your scripts -->
     <script src="script.js"></script>
+    <script src="slider.js"></script>
     
     <!-- Add link to products page -->
     <div class="products-link-container">

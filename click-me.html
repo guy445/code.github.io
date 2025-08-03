@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Pillars of Strength - Amul Tribute</title>
+    <!-- Google Fonts - Poppins/Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tribute Page Specific Styles */
+        :root {
+            --milk-white: #f9f9f9;
+            --amul-green: #2a4d3b;
+            --earth-brown: #8b5a2b;
+            --light-brown: #d2b48c;
+            --cream: #fffdd0;
+        }
+        
+        body {
+            background-color: var(--milk-white);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        
+        #tribute {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .tribute-header {
+            background-color: var(--amul-green);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            background-image: linear-gradient(rgba(42, 77, 59, 0.9), rgba(42, 77, 59, 0.9)), 
+                            url('https://www.amul.com/files/pics/Amul-Farmers.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tribute-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .tribute-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        
+        .tribute-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .tribute-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tribute-section h2 {
+            color: var(--amul-green);
+            border-bottom: 2px solid var(--light-brown);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .tribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .tribute-card {
+            background-color: var(--cream);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tribute-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .tribute-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .tribute-card-content {
+            padding: 20px;
+        }
+        
+        .tribute-card h3 {
+            color: var(--earth-brown);
+            margin-bottom: 10px;
+        }
+        
+        .tribute-card p {
+            font-size: 0.95rem;
+        }
+        
+        .tribute-stat {
+            background-color: var(--amul-green);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-brown);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--amul-green);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-left::after {
+            right: -10px;
+        }
+        
+        .timeline-right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--amul-green);
+            margin-bottom: 10px;
+        }
+        
+        .message-board {
+            background-color: var(--cream);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .message-form {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .message-form input,
+        .message-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .message-form textarea {
+            min-height: 120px;
+        }
+        
+        .message-form button {
+            background-color: var(--amul-green);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .message-form button:hover {
+            background-color: #1a3a2a;
+        }
+        
+        .tribute-footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--amul-green);
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .music-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--light-brown);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .music-toggle i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .photo-carousel {
+            margin: 30px 0;
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .carousel-btn.next {
+            right: 10px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tribute-header h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Amul_official_logo.svg/375px-Amul_official_logo.svg.png" alt="Amul Logo" class="amul-logo">
+            <h1>Our Pillars of Strength - An Amul Tribute</h1>
+            <div class="university-badge">Presented at Chitkara University</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="tribute">
+            <!-- Header Section -->
+            <div class="tribute-header">
+                <h1>To Those Who Truly Nourish India</h1>
+                <p>"Behind every drop of milk is a story of dedication, sacrifice, and the unsung heroes who have built Amul into what it is today. This page honors their legacy."</p>
+            </div>
+            
+            <!-- Dairy Farmers Tribute -->
+            <div class="tribute-section">
+                <h2>The Backbone of Amul: Our Dairy Farmers</h2>
+                <p>For over seven decades, millions of dairy farmers across India have been the true foundation of Amul's success. Their daily commitment to quality and excellence has transformed not just their lives, but the entire nation's dairy landscape.</p>
+                
+                <div class="tribute-grid">
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/women-empowerment.jpg" alt="Women Dairy Farmers">
+                        <div class="tribute-card-content">
+                            <h3>Women Empowerment</h3>
+                            <p>Women constitute over 70% of the workforce in India's dairy sector, managing household dairy operations while balancing family responsibilities.</p>
+                            <span class="tribute-stat">3.6 million women farmers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/Amul-Farmers.jpg" alt="Rural Prosperity">
+                        <div class="tribute-card-content">
+                            <h3>Rural Prosperity</h3>
+                            <p>"Amul has given us dignity and financial independence. My children can now go to school because of the steady income from milk production." - Lata Ben, Gujarat</p>
+                            <span class="tribute-stat">3.6 million farmer families supported</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/Milk-Collection.jpg" alt="Daily Dedication">
+                        <div class="tribute-card-content">
+                            <h3>Daily Dedication</h3>
+                            <p>Every morning and evening, millions of farmers bring their milk to 18,600 village societies, regardless of weather conditions or personal circumstances.</p>
+                            <span class="tribute-stat">24 million liters collected daily</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animal Appreciation -->
+            <div class="tribute-section">
+                <h2>Our Silent Contributors: The Dairy Animals</h2>
+                <p>The gentle cows and buffaloes that provide nourishment to millions deserve our deepest respect and care. Amul's success is built upon their wellbeing.</p>
+                
+                <div class="tribute-grid">
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/indigenous-breeds.jpg" alt="Indigenous Breeds">
+                        <div class="tribute-card-content">
+                            <h3>Indigenous Breeds</h3>
+                            <p>India's native cattle breeds like Gir, Sahiwal, and Rathi are treasured for their adaptability to local conditions and resistance to diseases.</p>
+                            <span class="tribute-stat">Preserving 40+ indigenous breeds</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/animal-welfare.jpg" alt="Animal Welfare">
+                        <div class="tribute-card-content">
+                            <h3>Animal Welfare</h3>
+                            <p>Amul promotes ethical animal husbandry practices, ensuring proper nutrition, healthcare, and humane treatment for all dairy animals.</p>
+                            <span class="tribute-stat">5,000+ veterinary professionals</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/buffalo.jpg" alt="Buffalo Contribution">
+                        <div class="tribute-card-content">
+                            <h3>Buffalo Contribution</h3>
+                            <p>Buffaloes contribute over 55% of India's milk production, with breeds like Murrah and Jaffarabadi being integral to Amul's rich, creamy products.</p>
+                            <span class="tribute-stat">World's largest buffalo population</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo Carousel -->
+                <div class="photo-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="https://www.amul.com/files/pics/dairy-farm1.jpg" alt="Dairy Farm">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://www.amul.com/files/pics/dairy-farm2.jpg" alt="Modern Dairy Farm">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://www.amul.com/files/pics/dairy-farm3.jpg" alt="Traditional Dairy Farm">
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev">❮</button>
+                    <button class="carousel-btn next">❯</button>
+                </div>
+            </div>
+            
+            <!-- The Amul Movement -->
+            <div class="tribute-section">
+                <h2>The Amul Movement: A Revolution in White</h2>
+                <p>The story of Amul is a testament to the power of cooperation, vision, and perseverance. From humble beginnings to becoming a household name, this journey has transformed India's dairy landscape.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h3>1946: The Birth of a Movement</h3>
+                            <p>Farmers in Kaira district united against exploitative trade practices, forming the Kaira District Cooperative Milk Producers' Union under Sardar Vallabhbhai Patel's guidance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <h3>1949: Dr. Verghese Kurien Arrives</h3>
+                            <p>A young engineer reluctantly posted to Anand would go on to become the architect of India's White Revolution and transform the dairy landscape forever.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h3>1955: Amul Brand is Born</h3>
+                            <p>The name derived from Sanskrit "Amulya" (priceless) becomes a symbol of quality, trust, and farmer prosperity across India.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <h3>1970: Operation Flood Begins</h3>
+                            <p>The world's largest dairy development program replicates the Amul model nationwide, making India the world's largest milk producer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h3>1994: GCMMF Formation</h3>
+                            <p>Gujarat Cooperative Milk Marketing Federation unites various district unions, strengthening the cooperative movement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <h3>2022: ₹72,000 Cr Brand</h3>
+                            <p>Amul becomes a ₹72,000 crore brand, owned by 3.6 million farmer families, proving the enduring power of cooperation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Behind-the-Scenes Heroes -->
+            <div class="tribute-section">
+                <h2>Behind-the-Scenes Heroes</h2>
+                <p>Beyond the spotlight are countless individuals whose dedication ensures that Amul products reach millions of homes daily. Their commitment forms the invisible backbone of our success.</p>
+                
+                <div class="tribute-grid">
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/factory-workers.jpg" alt="Factory Workers">
+                        <div class="tribute-card-content">
+                            <h3>Factory Workers</h3>
+                            <p>Operating state-of-the-art equipment around the clock, ensuring every product meets Amul's stringent quality standards.</p>
+                            <span class="tribute-stat">15,000+ plant employees</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/transport-network.jpg" alt="Transport Network">
+                        <div class="tribute-card-content">
+                            <h3>Transport Network</h3>
+                            <p>From village collection centers to urban markets, these heroes ensure the cold chain is never broken, preserving product freshness.</p>
+                            <span class="tribute-stat">10,000+ refrigerated vehicles</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tribute-card">
+                        <img src="https://www.amul.com/files/pics/veterinarians.jpg" alt="Veterinary Support">
+                        <div class="tribute-card-content">
+                            <h3>Veterinary Support</h3>
+                            <p>Providing crucial healthcare to millions of dairy animals, ensuring their wellbeing and productivity through all seasons.</p>
+                            <span class="tribute-stat">24/7 animal healthcare</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Thank You to Data Sources -->
+            <div class="tribute-section">
+                <h2>Our Sources of Knowledge</h2>
+                <p>We extend our sincere gratitude to the following organizations and resources that have provided valuable information for this tribute:</p>
+                
+                <ul style="list-style-type: none; padding: 0;">
+                    <li>• National Dairy Development Board (NDDB) - For comprehensive data on India's dairy sector</li>
+                    <li>• Amul Official Website - For historical information and current statistics</li>
+                    <li>• "I Too Had a Dream" - Dr. Verghese Kurien's autobiography</li>
+                    <li>• "The Amul India Story" - Ruth Heredia</li>
+                    <li>• Gujarat Cooperative Milk Marketing Federation (GCMMF) - For cooperative structure insights</li>
+                    <li>• "Manthan" (1976) - Shyam Benegal's acclaimed film on the milk cooperative movement</li>
+                    <li>• Indian Council of Agricultural Research (ICAR) - For information on indigenous cattle breeds</li>
+                    <li>• Oral histories collected from veteran dairy farmers across Gujarat</li>
+                </ul>
+            </div>
+            
+            <!-- Message Board -->
+            <div class="tribute-section">
+                <h2>Share Your Amul Story</h2>
+                <p>Has Amul touched your life in a special way? Do you have memories associated with our products or people? Share your story or message of appreciation below:</p>
+                
+                <div class="message-board">
+                    <h3>Leave a Message for Our Farmers</h3>
+                    <form class="message-form" id="guestbook-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" placeholder="Your Location">
+                        <textarea placeholder="Your message or memory..."></textarea>
+                        <button type="submit">Share Your Message</button>
+                    </form>
+                    
+                    <div id="messages-container" style="margin-top: 30px;">
+                        <!-- Sample messages -->
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <h4 style="margin: 0 0 5px 0; color: var(--amul-green);">Rajesh Sharma, Delhi</h4>
+                            <p style="margin: 0;">"Growing up in the 90s, the Amul girl advertisements were a constant companion. Thank you for not just nourishing our bodies but also bringing smiles to our faces!"</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="margin: 0 0 5px 0; color: var(--amul-green);">Priya Desai, Mumbai</h4>
+                            <p style="margin: 0;">"My grandmother was one of the early members of a milk cooperative in Gujarat. She always told us how Amul changed her life and gave her financial independence. Your legacy lives on!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="tribute-footer">
+                From our hearts to theirs – Thank you for nourishing a nation.
+                <button class="music-toggle" id="music-toggle" title="Toggle background music">
+                    <i>♪</i>
+                </button>
+                <audio id="background-music" loop>
+                    <source src="https://www.amul.com/files/audio/amul-theme.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Photo Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            let currentIndex = 0;
+            
+            // Set initial position
+            updateCarousel();
+            
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+            
+            // Auto-advance carousel
+            setInterval(function() {
+                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+            
+            function updateCarousel() {
+                carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            
+            // Music toggle functionality
+            const musicToggle = document.getElementById('music-toggle');
+            const backgroundMusic = document.getElementById('background-music');
+            let musicPlaying = false;
+            
+            musicToggle.addEventListener('click', function() {
+                if (musicPlaying) {
+                    backgroundMusic.pause();
+                    musicToggle.innerHTML = '<i>♪</i>';
+                } else {
+                    backgroundMusic.play();
+                    musicToggle.innerHTML = '<i>♫</i>';
+                }
+                musicPlaying = !musicPlaying;
+            });
+            
+            // Form submission
+            const guestbookForm = document.getElementById('guestbook-form');
+            const messagesContainer = document.getElementById('messages-container');
+            
+            guestbookForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = this.elements[0].value;
+                const location = this.elements[1].value;
+                const message = this.elements[2].value;
+                
+                if (name && message) {
+                    // Create new message element
+                    const messageElement = document.createElement('div');
+                    messageElement.style.background = 'white';
+                    messageElement.style.padding = '15px';
+                    messageElement.style.borderRadius = '8px';
+                    messageElement.style.marginBottom = '15px';
+                    
+                    const nameHeading = document.createElement('h4');
+                    nameHeading.style.margin = '0 0 5px 0';
+                    nameHeading.style.color = 'var(--amul-green)';
+                    nameHeading.textContent = name + (location ? ', ' + location : '');
+                    
+                    const messageText = document.createElement('p');
+                    messageText.style.margin = '0';
+                    messageText.textContent = message;
+                    
+                    messageElement.appendChild(nameHeading);
+                    messageElement.appendChild(messageText);
+                    
+                    // Add to container
+                    messagesContainer.insertBefore(messageElement, messagesContainer.firstChild);
+                    
+                    // Reset form
+                    this.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
